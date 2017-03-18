@@ -1,6 +1,5 @@
 const fs = require('fs');
 
-
 var obj = {
   name: 'Ben'
 };
@@ -9,7 +8,7 @@ var stringObj = JSON.stringify(obj);
 console.log(typeof stringObj);
 console.log(stringObj);
 
-var personString = '{"name": "Ben", "age": 27}'
+var personString = '{"name": "Ben", "age": 27}';
 person = JSON.parse(personString);
 console.log(typeof person);
 console.log(person.name);
@@ -26,4 +25,4 @@ fs.writeFileSync('notes.json', originalNoteString);
 var note = JSON.parse(fs.readFileSync('notes.json'));
 console.log(typeof note);
 console.log(note.title);
- 
+

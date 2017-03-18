@@ -4,11 +4,27 @@
   "description": "weather api app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint **/*.js *.js -c .eslintrc.json --fix"
   },
   "author": "Benjamin McClain",
   "license": "ISC",
   "dependencies": {
-    "request": "^2.81.0"
-  }
+    "eslint": "^3.17.1",
+    "express": "^4.15.2",
+    "request": "^2.81.0",
+    "yargs": "^7.0.2"
+  },
+  "devDependencies": {
+    "eslint-plugin-promise": "3.4.0",
+    "eslint-plugin-standard": "2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NoxPhoenix/weather-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NoxPhoenix/weather-app/issues"
+  },
+  "homepage": "https://github.com/NoxPhoenix/weather-app#readme"
 }
