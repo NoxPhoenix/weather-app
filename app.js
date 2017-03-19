@@ -27,11 +27,11 @@ var location = {
 api.getLocation(argv.a, (location) => {
   debugger;
   var options = {
-    url: `api.openweathermap.org/data/2.5/weather?zip=${encodeURIComponent(location)},us&APPID=48cdfea3267c393776851642f0cf5066`,
+    url: `http://api.openweathermap.org/data/2.5/weather?zip=${encodeURIComponent(location)},us&APPID=48cdfea3267c393776851642f0cf5066`,
     json: true
   }
 console.log(options.url)
-  request(options, (err, res, body) => {
-    console.log(body)
-  })
+  request(options, (err, res, b) => {
+    console.log(err, res, b);
+  });
 });
