@@ -2,6 +2,8 @@ const request = require('request');
 const yargs = require('yargs');
 const app = require('express')
 
+const api = require('./api-helper.js')
+
 const argv = yargs
   .options({
     a: {
@@ -17,17 +19,19 @@ const argv = yargs
 
 console.log(argv);
 
-request({
-  url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(argv.a)}`,
-  json: true
-}, (err, res, body) => {
-  // console.log(body)
-  console.log(`Address: ${body.results[0].formatted_address}`);
-  console.log(`Latitude: ${body.results[0].geometry.location.lat}`);
-  console.log(`Longitude: ${body.results[0].geometry.location.lng}`);
+var location = {
+  lat: 0,
+  lon: 0
+};
+
+api.getLocation(argv.a, (location) => {
+  debugger;
+  var options = {
+    url: `api.openweathermap.org/data/2.5/weather?zip=${encodeURIComponent(location)},us&APPID=48cdfea3267c393776851642f0cf5066`,
+    json: true
+  }
+console.log(options.url)
+  request(options, (err, res, body) => {
+    console.log(body)
+  })
 });
-
-
-
-
-// api.openweathermap.org/data/2.5/weather?q={city name}
